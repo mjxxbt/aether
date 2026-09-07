@@ -17,21 +17,14 @@ hard confirmation gate.
 > Experimental hackathon software. Not financial advice. You are fully
 > responsible for anything you confirm and execute.
 
-## Hackathon submission pack
+## Documentation
 
-Start with [the submission packet](docs/HACKATHON_SUBMISSION.md). It contains
-the Track A positioning, copy-ready project description, demo evidence plan,
-external submission fields, and final checklist.
-
-- [Pitch and judge walkthrough](docs/HACKATHON_PITCH.md)
-- [Demo script](docs/demo-script.md)
-- [Agent OS integration and live-proof workflow](docs/AGENT_OS_INTEGRATION.md)
 - [Getting Started](docs/GETTING_STARTED.md)
+- [Agent OS integration and live-proof workflow](docs/AGENT_OS_INTEGRATION.md)
 - [Operations runbook](docs/OPERATIONS_RUNBOOK.md)
 - [Local API reference](docs/API.md)
 - [FAQ](docs/FAQ.md)
 - [Security and safety](docs/SECURITY_AND_SAFETY.md)
-- [Release checklist](docs/RELEASE_CHECKLIST.md)
 
 If you are using Codex, start with the short operating contract in
 [AGENTS.md](AGENTS.md); it maps simple requests such as “run a read-only scan”
