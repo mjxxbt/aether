@@ -30,7 +30,7 @@ Aether is designed with a strict **trust boundary**. The recommended implementat
 graph TD
     User["👤 User (NL Goals / Commands)"] -->|Instructs| Agent["🤖 Orchestrating AI Agent<br/>(Claude Code, Codex, etc.)<br/>*Holds Live Binance MCP Session*"]
     
-    subgraph Aether Engine (Deterministic Local Control Plane)
+    subgraph AetherEngine ["Aether Engine (Deterministic Local Control Plane)"]
         direction TB
         Agent -->|1. Fetches Market/Account Data via MCP<br/>2. Assembles StrategyInput JSON| Strategy["📊 Strategy Modules<br/>(Funding, Momentum, Alpha, etc.)"]
         Memory["🧠 Memory Store<br/>(Strategy Weights, PnL)"] -->|Dynamic Weights| Strategy
