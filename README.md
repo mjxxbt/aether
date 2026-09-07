@@ -175,7 +175,6 @@ demo                                Run a public-market paper demo
 | **[OPERATIONS_RUNBOOK.md](docs/OPERATIONS_RUNBOOK.md)** | Live, paper, and recovery procedures |
 | **[API.md](docs/API.md)** | Local dashboard API reference |
 | **[architecture.md](docs/architecture.md)** | Diagram + trust boundary |
-| **[HACKATHON_SUBMISSION.md](docs/HACKATHON_SUBMISSION.md)** | Submission copy and canonical checklist |
 | **[SECURITY_AND_SAFETY.md](docs/SECURITY_AND_SAFETY.md)** | Threat model and emergency procedure |
 | **[FAQ.md](docs/FAQ.md)** | User and judge FAQ |
 

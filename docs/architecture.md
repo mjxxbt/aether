@@ -172,5 +172,3 @@ simulation, no fees, no funding cost modeling.
 - [Security and Safety](SECURITY_AND_SAFETY.md) — threat model and emergency
   stop.
 - [Local API Reference](API.md) — dashboard routes and payloads.
-- [Hackathon Submission Packet](HACKATHON_SUBMISSION.md) — demo evidence and
-  external submission checklist.

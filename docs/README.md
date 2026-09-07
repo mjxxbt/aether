@@ -4,9 +4,6 @@ Choose the document that matches what you are trying to do:
 
 | Goal                                 | Start here                                         |
 | ------------------------------------ | -------------------------------------------------- |
-| Submit the project to the hackathon  | [HACKATHON_SUBMISSION.md](HACKATHON_SUBMISSION.md) |
-| Prepare a pitch or judge walkthrough | [HACKATHON_PITCH.md](HACKATHON_PITCH.md)           |
-| Record the product demo              | [demo-script.md](demo-script.md)                   |
 | Install and use Aether               | [GETTING_STARTED.md](GETTING_STARTED.md)           |
 | Operate a live or paper-mode session | [OPERATIONS_RUNBOOK.md](OPERATIONS_RUNBOOK.md)     |
 | Understand the dashboard API         | [API.md](API.md)                                   |
@@ -18,7 +15,6 @@ Choose the document that matches what you are trying to do:
 | Walk through x402 payments           | [x402-example.md](x402-example.md)                 |
 | Find copy-paste agent prompts        | [example-prompts.md](example-prompts.md)           |
 | Prove the live Agent OS workflow     | [AGENT_OS_INTEGRATION.md](AGENT_OS_INTEGRATION.md) |
-| Check release readiness              | [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md)       |
 
 The root [README.md](../README.md) is the public overview. The root
 [AGENT.md](../AGENT.md) is the operating contract for the orchestrating AI

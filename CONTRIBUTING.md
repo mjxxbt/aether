@@ -48,4 +48,3 @@ npm test             # all tests must pass before submitting a PR
 - [ ] All new write-capable paths go through `confirmationGate.ts`
 - [ ] User-facing behavior is documented in `docs/` and linked from the
       documentation map
-- [ ] `docs/RELEASE_CHECKLIST.md` is still accurate

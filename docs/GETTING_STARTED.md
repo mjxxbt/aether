@@ -5,8 +5,7 @@
 > proposals go through the web UI — the local engine never executes orders; external writes require your
 > explicit confirmation.
 
-For a hackathon submission, use [HACKATHON_SUBMISSION.md](HACKATHON_SUBMISSION.md)
-first. The [operations runbook](OPERATIONS_RUNBOOK.md) covers the full safe
+The [operations runbook](OPERATIONS_RUNBOOK.md) covers the full safe
 workflow, while the [FAQ](FAQ.md) answers common user and judge questions.
 
 ---
