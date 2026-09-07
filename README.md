@@ -126,7 +126,7 @@ set-goals --goals <file|json>       Save risk goals to memory
 score --scenario <file|json>        Run strategy modules, print weighted opportunities
 propose --scenario <file|json>      Create demo or explicitly MCP-context proposals
 propose --portfolio <file|json>     Use a sanitized Binance MCP account snapshot
-confirm --id <id>                   Used by the dashboard to record confirmation
+confirm --id <id>                   Internal dashboard confirmation step (not execution)
 instruction --id <id>               Retrieve and revalidate a confirmed instruction
 reject --id <id>                    Reject a pending action
 pending                             List all currently pending actions

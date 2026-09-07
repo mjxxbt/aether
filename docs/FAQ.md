@@ -28,7 +28,7 @@ The CLI equivalent is:
 node dist/cli.js pending --json
 ```
 
-Use the exact ID with `confirm --id` only when the action is labeled
+Use the exact ID through the dashboard confirmation control only when the action is labeled
 `MCP LIVE ACCOUNT`/`MCP LIVE` or `LIVE AGENT OS WALLET / SKILLS`; use
 `reject --id` for any action. Never shorten or edit the ID.
 

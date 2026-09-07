@@ -64,7 +64,8 @@ const pending = proposePayment({
 //   The agent shows pending.summary to the USER and waits for approval.
 //   It is a DEMO / PAPER action unless an explicit live PaymentContext is provided.
 
-// Step 4: after user confirms in the dashboard, the agent retrieves the instruction:
+// Step 4: after the user confirms this eligible live action in the dashboard,
+// the agent retrieves the instruction:
 // (Run `aether instruction --id <action-id>` or via local API)
 // instruction.route === "x402"
 // instruction.endpoint === "https://skills.binance.com/premium/momentum-signal"
