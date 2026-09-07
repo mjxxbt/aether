@@ -614,7 +614,7 @@ export default function Dashboard() {
   }, [selectedAction]);
 
   return (
-    <div className="min-h-screen p-6 md:p-12 lg:max-w-[90rem] lg:mx-auto relative z-10 font-sans">
+    <div className="dashboard-root">
       <Toaster position="bottom-right" />
 
       {/* Instrument-style background: quiet grid, amber focus light, no template gradients. */}
@@ -625,139 +625,141 @@ export default function Dashboard() {
 
       {/* LOG TRADE MODAL */}
       {showLogTrade && (
-        <div className="fixed inset-0 bg-background/80 flex items-center justify-center z-50 p-6 backdrop-blur-md">
-          <div className="bg-surface/90 border border-white/10 rounded-2xl shadow-2xl p-6 max-w-lg w-full font-mono backdrop-blur-xl">
-            <div className="flex justify-between items-center border-b border-white/10 pb-4 mb-6">
-              <h2 className="text-lg font-bold tracking-widest uppercase">Log Trade Outcome</h2>
-              <button
-                onClick={() => setShowLogTrade(false)}
-                className="text-muted hover:text-white transition-colors text-xl"
-              >
-                &times;
-              </button>
-            </div>
-            {/* Modal Form fields... shortened for brevity, functionally identical */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-muted">
-              <label className="flex flex-col gap-1">
-                Strategy
-                <select
-                  className="bg-background/50 border border-white/10 rounded-md p-2 text-white text-sm"
-                  value={tradeForm.strategy}
-                  onChange={(e) => setTradeForm({ ...tradeForm, strategy: e.target.value })}
+        <div className="modal-backdrop" role="dialog" aria-modal="true" aria-label="Log Trade Outcome">
+          <div className="modal-sheet bg-surface/95 border border-white/10 shadow-2xl backdrop-blur-xl overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-center border-b border-white/10 pb-4 mb-6">
+                <h2 className="text-base font-bold tracking-widest uppercase font-mono">Log Trade Outcome</h2>
+                <button
+                  onClick={() => setShowLogTrade(false)}
+                  className="text-muted hover:text-white transition-colors text-xl leading-none p-1 rounded hover:bg-white/5"
+                  aria-label="Close log trade modal"
                 >
-                  {[
-                    "funding_rate",
-                    "funding_rate_neutral",
-                    "momentum",
-                    "onchain_alpha",
-                    "convert_yield",
-                    "prediction_market",
-                    "portfolio_rebalance",
-                    "sentiment",
-                  ].map((s) => (
-                    <option key={s} value={s}>
-                      {s}
-                    </option>
-                  ))}
-                </select>
-              </label>
-              <label className="flex flex-col gap-1">
-                Symbol (e.g. BTCUSDT)
-                <input
-                  className="bg-background/50 border border-white/10 rounded-md p-2 text-white text-sm"
-                  placeholder="BTCUSDT"
-                  value={tradeForm.symbol}
-                  onChange={(e) => setTradeForm({ ...tradeForm, symbol: e.target.value.toUpperCase() })}
-                />
-              </label>
-              <label className="flex flex-col gap-1">
-                Direction
-                <select
-                  className="bg-background/50 border border-white/10 rounded-md p-2 text-white text-sm"
-                  value={tradeForm.direction}
-                  onChange={(e) => setTradeForm({ ...tradeForm, direction: e.target.value })}
+                  &times;
+                </button>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-muted">
+                <label className="flex flex-col gap-1.5">
+                  <span className="font-mono text-[10px] uppercase tracking-wider">Strategy</span>
+                  <select
+                    className="bg-background/60 border border-white/10 rounded-lg p-2.5 text-white text-sm focus:outline-none focus:border-accent/50"
+                    value={tradeForm.strategy}
+                    onChange={(e) => setTradeForm({ ...tradeForm, strategy: e.target.value })}
+                  >
+                    {[
+                      "funding_rate",
+                      "funding_rate_neutral",
+                      "momentum",
+                      "onchain_alpha",
+                      "convert_yield",
+                      "prediction_market",
+                      "portfolio_rebalance",
+                      "sentiment",
+                    ].map((s) => (
+                      <option key={s} value={s}>
+                        {s}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label className="flex flex-col gap-1.5">
+                  <span className="font-mono text-[10px] uppercase tracking-wider">Symbol (e.g. BTCUSDT)</span>
+                  <input
+                    className="bg-background/60 border border-white/10 rounded-lg p-2.5 text-white text-sm focus:outline-none focus:border-accent/50"
+                    placeholder="BTCUSDT"
+                    value={tradeForm.symbol}
+                    onChange={(e) => setTradeForm({ ...tradeForm, symbol: e.target.value.toUpperCase() })}
+                  />
+                </label>
+                <label className="flex flex-col gap-1.5">
+                  <span className="font-mono text-[10px] uppercase tracking-wider">Direction</span>
+                  <select
+                    className="bg-background/60 border border-white/10 rounded-lg p-2.5 text-white text-sm focus:outline-none focus:border-accent/50"
+                    value={tradeForm.direction}
+                    onChange={(e) => setTradeForm({ ...tradeForm, direction: e.target.value })}
+                  >
+                    <option value="long">long</option>
+                    <option value="short">short</option>
+                    <option value="buy">buy</option>
+                    <option value="sell">sell</option>
+                  </select>
+                </label>
+                <label className="flex flex-col gap-1.5">
+                  <span className="font-mono text-[10px] uppercase tracking-wider">Venue</span>
+                  <select
+                    className="bg-background/60 border border-white/10 rounded-lg p-2.5 text-white text-sm focus:outline-none focus:border-accent/50"
+                    value={tradeForm.venue}
+                    onChange={(e) => setTradeForm({ ...tradeForm, venue: e.target.value })}
+                  >
+                    <option value="spot">spot</option>
+                    <option value="usdm_futures">usdm_futures</option>
+                    <option value="coinm_futures">coinm_futures</option>
+                    <option value="margin">margin</option>
+                    <option value="onchain">onchain</option>
+                    <option value="transfer">transfer</option>
+                  </select>
+                </label>
+                <label className="flex flex-col gap-1.5">
+                  <span className="font-mono text-[10px] uppercase tracking-wider">Size USD</span>
+                  <input
+                    type="number"
+                    className="bg-background/60 border border-white/10 rounded-lg p-2.5 text-white text-sm focus:outline-none focus:border-accent/50"
+                    placeholder="1000"
+                    value={tradeForm.sizeUsd}
+                    onChange={(e) => setTradeForm({ ...tradeForm, sizeUsd: e.target.value })}
+                  />
+                </label>
+                <label className="flex flex-col gap-1.5">
+                  <span className="font-mono text-[10px] uppercase tracking-wider">Confidence (0–1)</span>
+                  <input
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    max="1"
+                    className="bg-background/60 border border-white/10 rounded-lg p-2.5 text-white text-sm focus:outline-none focus:border-accent/50"
+                    value={tradeForm.confidence}
+                    onChange={(e) => setTradeForm({ ...tradeForm, confidence: e.target.value })}
+                  />
+                </label>
+                <label className="flex flex-col gap-1.5">
+                  <span className="font-mono text-[10px] uppercase tracking-wider">Outcome</span>
+                  <select
+                    className="bg-background/60 border border-white/10 rounded-lg p-2.5 text-white text-sm focus:outline-none focus:border-accent/50"
+                    value={tradeForm.outcome}
+                    onChange={(e) => setTradeForm({ ...tradeForm, outcome: e.target.value })}
+                  >
+                    <option value="win">win</option>
+                    <option value="loss">loss</option>
+                    <option value="breakeven">breakeven</option>
+                    <option value="open">open</option>
+                  </select>
+                </label>
+                <label className="flex flex-col gap-1.5">
+                  <span className="font-mono text-[10px] uppercase tracking-wider">PnL USD (optional)</span>
+                  <input
+                    type="number"
+                    className="bg-background/60 border border-white/10 rounded-lg p-2.5 text-white text-sm focus:outline-none focus:border-accent/50"
+                    placeholder="e.g. 120 or -45"
+                    value={tradeForm.pnlUsd}
+                    onChange={(e) => setTradeForm({ ...tradeForm, pnlUsd: e.target.value })}
+                  />
+                </label>
+              </div>
+              <div className="flex flex-col-reverse sm:flex-row gap-3 mt-6 justify-end">
+                <button
+                  onClick={() => setShowLogTrade(false)}
+                  className="button-secondary"
                 >
-                  <option value="long">long</option>
-                  <option value="short">short</option>
-                  <option value="buy">buy</option>
-                  <option value="sell">sell</option>
-                </select>
-              </label>
-              <label className="flex flex-col gap-1">
-                Venue
-                <select
-                  className="bg-background/50 border border-white/10 rounded-md p-2 text-white text-sm"
-                  value={tradeForm.venue}
-                  onChange={(e) => setTradeForm({ ...tradeForm, venue: e.target.value })}
+                  Cancel
+                </button>
+                <button
+                  onClick={handleLogTrade}
+                  disabled={loggingTrade}
+                  className="button-primary disabled:opacity-50"
                 >
-                  <option value="spot">spot</option>
-                  <option value="usdm_futures">usdm_futures</option>
-                  <option value="coinm_futures">coinm_futures</option>
-                  <option value="margin">margin</option>
-                  <option value="onchain">onchain</option>
-                  <option value="transfer">transfer</option>
-                </select>
-              </label>
-              <label className="flex flex-col gap-1">
-                Size USD
-                <input
-                  type="number"
-                  className="bg-background/50 border border-white/10 rounded-md p-2 text-white text-sm"
-                  placeholder="1000"
-                  value={tradeForm.sizeUsd}
-                  onChange={(e) => setTradeForm({ ...tradeForm, sizeUsd: e.target.value })}
-                />
-              </label>
-              <label className="flex flex-col gap-1">
-                Confidence (0–1)
-                <input
-                  type="number"
-                  step="0.01"
-                  min="0"
-                  max="1"
-                  className="bg-background/50 border border-white/10 rounded-md p-2 text-white text-sm"
-                  value={tradeForm.confidence}
-                  onChange={(e) => setTradeForm({ ...tradeForm, confidence: e.target.value })}
-                />
-              </label>
-              <label className="flex flex-col gap-1">
-                Outcome
-                <select
-                  className="bg-background/50 border border-white/10 rounded-md p-2 text-white text-sm"
-                  value={tradeForm.outcome}
-                  onChange={(e) => setTradeForm({ ...tradeForm, outcome: e.target.value })}
-                >
-                  <option value="win">win</option>
-                  <option value="loss">loss</option>
-                  <option value="breakeven">breakeven</option>
-                  <option value="open">open</option>
-                </select>
-              </label>
-              <label className="flex flex-col gap-1">
-                PnL USD (optional)
-                <input
-                  type="number"
-                  className="bg-background/50 border border-white/10 rounded-md p-2 text-white text-sm"
-                  placeholder="e.g. 120 or -45"
-                  value={tradeForm.pnlUsd}
-                  onChange={(e) => setTradeForm({ ...tradeForm, pnlUsd: e.target.value })}
-                />
-              </label>
-            </div>
-            <div className="flex gap-4 mt-6 justify-end">
-              <button
-                onClick={() => setShowLogTrade(false)}
-                className="px-4 py-2 text-muted hover:text-white transition-colors rounded-md"
-              >
-                CANCEL
-              </button>
-              <button
-                onClick={handleLogTrade}
-                disabled={loggingTrade}
-                className="bg-accent/20 text-accent px-6 py-2 rounded-md font-bold border border-accent hover:bg-accent hover:text-background transition-all disabled:opacity-50 shadow-[0_0_15px_rgba(229,169,58,0.2)]"
-              >
-                {loggingTrade ? "SAVING..." : "LOG TRADE"}
-              </button>
+                  {loggingTrade ? "Saving..." : "Log Trade"}
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -765,8 +767,14 @@ export default function Dashboard() {
 
       {/* COMMAND CENTER MODAL */}
       {showCommandCenter && (
-        <div className="fixed inset-0 bg-background/85 flex items-center justify-center z-[70] p-4 sm:p-6 backdrop-blur-md">
-          <div className="command-center-modal" role="dialog" aria-modal="true" aria-labelledby="command-center-title">
+        <div className="modal-backdrop modal-backdrop-top">
+          <div
+            className="command-center-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="command-center-title"
+            style={{ maxWidth: "min(100%, 72rem)" }}
+          >
             <div className="command-center-header">
               <div>
                 <div className="eyebrow">
@@ -837,19 +845,21 @@ export default function Dashboard() {
 
       {/* EXECUTION INSTRUCTION MODAL */}
       {executionInstruction && (
-        <div className="fixed inset-0 bg-background/80 flex items-center justify-center z-[60] p-6 backdrop-blur-md">
-          <div className="bg-surface/95 border border-accent/30 shadow-2xl rounded-2xl p-6 max-w-2xl w-full max-h-[90vh] flex flex-col font-mono">
-            <div className="flex justify-between items-center border-b border-white/10 pb-4 mb-4">
+        <div className="modal-backdrop modal-backdrop-high">
+          <div className="modal-sheet bg-surface/95 border border-accent/30 shadow-2xl font-mono overflow-hidden">
+            <div className="overflow-y-auto flex-1 p-6">
+            <div className="flex justify-between items-start border-b border-white/10 pb-4 mb-4">
               <div>
-                <h2 className="text-lg font-bold tracking-widest uppercase text-accent">Execution Instruction</h2>
-                <p className="text-xs text-muted mt-1">
+                <h2 className="text-base font-bold tracking-widest uppercase text-accent">Execution Instruction</h2>
+                <p className="text-xs text-muted mt-1 leading-relaxed max-w-sm">
                   Confirmation is recorded. Give the next command to your connected AI agent; it must still preflight
                   and request final authorization before any write.
                 </p>
               </div>
               <button
                 onClick={() => setExecutionInstruction(null)}
-                className="text-muted hover:text-white transition-colors text-2xl leading-none"
+                className="text-muted hover:text-white transition-colors text-2xl leading-none p-1 ml-3 flex-shrink-0 rounded hover:bg-white/5"
+                aria-label="Close execution instruction"
               >
                 &times;
               </button>
@@ -873,27 +883,31 @@ export default function Dashboard() {
                 </pre>
               </div>
             )}
-            <pre className="bg-black/50 text-gray-300 p-4 rounded-xl text-xs overflow-auto border border-white/5 whitespace-pre-wrap">
+            <pre className="bg-black/50 text-gray-300 p-4 rounded-xl text-xs overflow-auto border border-white/5 whitespace-pre-wrap max-h-48">
               {JSON.stringify(executionInstruction, null, 2)}
             </pre>
-            <button
-              onClick={() => {
-                setExecutionInstruction(null);
-                setConfirmedActionId(null);
-              }}
-              className="mt-5 self-end bg-accent/10 text-accent border border-accent/30 rounded-lg px-5 py-2 text-xs font-bold uppercase tracking-wider"
-            >
-              Close
-            </button>
+            <div className="mt-5 flex justify-end">
+              <button
+                onClick={() => {
+                  setExecutionInstruction(null);
+                  setConfirmedActionId(null);
+                }}
+                className="button-secondary"
+              >
+                Close
+              </button>
+            </div>
+            </div>
           </div>
         </div>
       )}
 
       {/* DEEP DIVE MODAL */}
       {selectedAction && (
-        <div className="fixed inset-0 bg-background/80 flex items-center justify-center z-50 p-6 backdrop-blur-md">
-          <div className="bg-surface/95 border border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.5)] rounded-2xl p-6 max-w-2xl w-full max-h-[90vh] flex flex-col font-mono backdrop-blur-xl">
-            <div className="flex justify-between items-center border-b border-white/10 pb-4 mb-4">
+        <div className="modal-backdrop">
+          <div className="modal-sheet bg-surface/95 border border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.5)] font-mono backdrop-blur-xl overflow-hidden">
+            <div className="overflow-y-auto flex-1 p-6 flex flex-col">
+            <div className="flex justify-between items-start border-b border-white/10 pb-4 mb-4">
               <div>
                 <span className="text-accent text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
                   <Cpu size={14} /> {selectedAction.opportunity?.strategy}
@@ -1049,16 +1063,16 @@ export default function Dashboard() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 mt-6 pt-4 border-t border-white/10">
+            <div className="grid grid-cols-2 gap-3 mt-6 pt-4 border-t border-white/10 flex-shrink-0">
               <button
                 onClick={() => {
                   handleAction(selectedAction.id, "reject");
                   setSelectedAction(null);
                 }}
                 disabled={!!actionInFlight}
-                className="flex items-center justify-center gap-2 border border-negative/50 text-negative rounded-xl py-3 font-bold hover:bg-negative/10 transition-all uppercase tracking-wider text-sm"
+                className="flex items-center justify-center gap-2 border border-negative/50 text-negative rounded-xl py-3 font-bold hover:bg-negative/10 transition-all uppercase tracking-wider text-xs sm:text-sm"
               >
-                <XCircle size={18} /> Reject
+                <XCircle size={16} /> Reject
               </button>
               <button
                 onClick={() => {
@@ -1071,10 +1085,11 @@ export default function Dashboard() {
                     ? "Generate the instruction after confirmation"
                     : "Demo, paper, and legacy actions cannot create live instructions"
                 }
-                className="flex items-center justify-center gap-2 bg-accent/20 text-accent border border-accent/50 rounded-xl py-3 font-bold hover:bg-accent hover:text-background transition-all uppercase tracking-wider text-sm shadow-[0_0_20px_rgba(229,169,58,0.3)] disabled:opacity-40 disabled:cursor-not-allowed"
+                className="flex items-center justify-center gap-2 bg-accent/20 text-accent border border-accent/50 rounded-xl py-3 font-bold hover:bg-accent hover:text-background transition-all uppercase tracking-wider text-xs sm:text-sm shadow-[0_0_20px_rgba(229,169,58,0.3)] disabled:opacity-40 disabled:cursor-not-allowed"
               >
-                <CheckCircle size={18} /> {isMcpLiveAction(selectedAction) ? "Confirm" : "Demo only"}
+                <CheckCircle size={16} /> {isMcpLiveAction(selectedAction) ? "Confirm" : "Demo only"}
               </button>
+            </div>
             </div>
           </div>
         </div>
@@ -1082,45 +1097,45 @@ export default function Dashboard() {
 
       {/* Header */}
       <header className="terminal-header">
-        <div className="flex items-start gap-4">
+        <div className="header-brand">
           <div className="brand-mark" aria-hidden="true">
             <span />
             <span />
             <span />
           </div>
-          <div>
+          <div className="min-w-0">
             <div className="eyebrow mb-2">
               <span className="status-dot status-dot-live" /> AETHER / LOCAL CONTROL PLANE
-              <span className="ml-4 opacity-75">Built by mjx</span>
+              <span className="ml-3 opacity-60">mjx</span>
             </div>
-            <h1 className="text-3xl md:text-4xl font-semibold tracking-[-0.04em] text-white">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-[-0.04em] text-white leading-tight">
               Decision surface for agentic execution
             </h1>
-            <p className="text-muted text-sm mt-2 max-w-xl leading-relaxed">
+            <p className="text-muted text-xs sm:text-sm mt-2 max-w-xl leading-relaxed">
               Deterministic signals, explicit risk limits, and a human-confirmed handoff to Binance Agent OS.
             </p>
           </div>
         </div>
-        <div className="font-mono text-sm flex flex-col md:items-end gap-3">
+        <div className="header-actions">
           {error ? (
             <span className="status-pill status-pill-danger">
-              <XCircle size={14} /> STATE OFFLINE
+              <XCircle size={13} /> STATE OFFLINE
             </span>
           ) : isGlobalHalt ? (
             <span className="status-pill status-pill-danger">
-              <ShieldAlert size={14} /> RISK HALT
+              <ShieldAlert size={13} /> RISK HALT
             </span>
           ) : (
             <span className="status-pill status-pill-live">
-              <CheckCircle size={14} /> STATE SYNCED
+              <CheckCircle size={13} /> STATE SYNCED
             </span>
           )}
-          <div className="flex gap-2">
+          <div className="header-btn-group">
             <button onClick={() => setShowCommandCenter(true)} className="button-secondary">
-              <Terminal size={14} /> COMMAND CENTER
+              <Terminal size={13} /> CMD
             </button>
             <button onClick={() => setShowLogTrade(true)} className="button-secondary">
-              <Database size={14} /> LOG OUTCOME
+              <Database size={13} /> LOG
             </button>
             <button
               onClick={handleScan}
@@ -1132,12 +1147,12 @@ export default function Dashboard() {
               }
               className="button-primary"
             >
-              <Radar size={14} />{" "}
+              <Radar size={13} />{" "}
               {scanning
                 ? "SCANNING..."
                 : accountContext?.executionContext === "mcp_live"
-                  ? "SWITCH TO DEMO SCAN"
-                  : "PUBLIC MARKET SCAN"}
+                  ? "DEMO SCAN"
+                  : "MARKET SCAN"}
             </button>
           </div>
         </div>
@@ -1272,7 +1287,7 @@ export default function Dashboard() {
         </div>
       </section>
 
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-8 items-start">
+      <div className="dashboard-grid">
         {/* Left Column */}
         <div className="space-y-8">
           {/* Equity Chart */}
@@ -1289,7 +1304,7 @@ export default function Dashboard() {
                 {equityCurve.length} samples
               </span>
             </div>
-            <div className="h-[280px] w-full">
+            <div className="h-[240px] sm:h-[280px] w-full">
               {equityCurve.length > 1 ? (
                 <ResponsiveContainer width="100%" height="100%">
                   <AreaChart data={equityCurve} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
@@ -1469,10 +1484,10 @@ export default function Dashboard() {
           </section>
         </div>
 
-        {/* Right Column: Actions */}
-        <section className="flex flex-col h-[calc(100vh-140px)] sticky top-6">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="eyebrow text-sm">
+        {/* Right Column: Pending Approvals */}
+        <section className="pending-sidebar" aria-label="Pending approvals">
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="eyebrow">
               <LockKeyhole size={13} /> Pending approvals
             </h2>
             {pending.length > 0 && (
@@ -1485,7 +1500,7 @@ export default function Dashboard() {
             )}
           </div>
 
-          <div className="flex flex-col gap-4 overflow-y-auto pr-2 custom-scrollbar flex-1 pb-10">
+          <div className="pending-scroll-area">
             {pending.map((a) => (
               <div key={a.id} className="action-card group shrink-0 relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-1 h-full bg-accent opacity-50 group-hover:opacity-100 transition-opacity" />
