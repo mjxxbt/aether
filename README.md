@@ -7,15 +7,15 @@
 
 ---
 
-## 🚀 One-Line Pitch
+## 🚀 Pitch
 
 **Aether is a transparent, adaptive Binance trading copilot that turns live market and account context into risk-sized, explainable proposals — then requires a human confirmation before any Binance action can happen.**
 
-## 📖 Short Description
+## 📖 Description
 
 Aether combines Binance Agent OS integrations with a deterministic local engine for multi-strategy market analysis, risk sizing, performance memory, and human-confirmed execution. An orchestrating AI agent fetches live Binance data through MCP and Skills, the engine scores opportunities and creates auditable action IDs, and the dashboard lets the user inspect rationale, limits, paired legs, and execution instructions before deciding. **The engine has no credentials and cannot place trades by itself.**
 
-## 💎 Judge-Facing Value Proposition
+## 💎 Value Proposition
 
 Most trading agents compress research, decision-making, and execution into a single opaque step. **Aether separates those responsibilities.**  
 Binance Agent OS provides the live account, market, wallet, and skills surfaces; Aether adds a repeatable intelligence and safety layer; the user remains the final authority for every write action. This makes the workflow inspectable, testable, and demonstrable even in paper mode.
