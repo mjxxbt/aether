@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Data files (auto-generated at runtime)
+data/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Next.js (web dashboard)
+web/.next/
+web/out/
+
+# Internal hackathon prep (not for public repo)
+docs/HACKATHON_SUBMISSION.md
+docs/HACKATHON_PITCH.md
+docs/demo-script.md
+docs/RELEASE_CHECKLIST.md
+docs/RELEASE_STATUS.md
+

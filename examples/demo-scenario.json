@@ -1,0 +1,93 @@
+{
+  "goals": {
+    "profile": "hackathon-demo",
+    "maxDrawdownPct": 0.1,
+    "maxPositionPct": 0.2,
+    "maxOnchainExposurePct": 0.1,
+    "maxLeverage": 3,
+    "minConfidence": 0.25,
+    "reviewIntervalHours": 4
+  },
+  "portfolio": {
+    "timestamp": "2026-09-05T00:00:00.000Z",
+    "totalEquityUsd": 10000,
+    "highWaterMarkUsd": 10000,
+    "currentDrawdownPct": 0,
+    "positions": []
+  },
+  "markets": [
+    {
+      "symbol": "BTCUSDT",
+      "priceUsd": 105000,
+      "change24hPct": 0.012,
+      "volume24hUsd": 1000000000,
+      "fundingRate": 0.0008,
+      "klines": [
+        {
+          "openTime": "2026-09-04T17:00:00.000Z",
+          "open": 103000,
+          "high": 103500,
+          "low": 102500,
+          "close": 103200,
+          "volume": 1000
+        },
+        {
+          "openTime": "2026-09-04T18:00:00.000Z",
+          "open": 103200,
+          "high": 103900,
+          "low": 103000,
+          "close": 103700,
+          "volume": 1000
+        },
+        {
+          "openTime": "2026-09-04T19:00:00.000Z",
+          "open": 103700,
+          "high": 104300,
+          "low": 103500,
+          "close": 104100,
+          "volume": 1000
+        },
+        {
+          "openTime": "2026-09-04T20:00:00.000Z",
+          "open": 104100,
+          "high": 104700,
+          "low": 103900,
+          "close": 104500,
+          "volume": 1000
+        },
+        {
+          "openTime": "2026-09-04T21:00:00.000Z",
+          "open": 104500,
+          "high": 105200,
+          "low": 104200,
+          "close": 105000,
+          "volume": 1000
+        },
+        {
+          "openTime": "2026-09-04T22:00:00.000Z",
+          "open": 105000,
+          "high": 105300,
+          "low": 104600,
+          "close": 104900,
+          "volume": 1000
+        },
+        {
+          "openTime": "2026-09-04T23:00:00.000Z",
+          "open": 104900,
+          "high": 105100,
+          "low": 104500,
+          "close": 104800,
+          "volume": 1000
+        },
+        {
+          "openTime": "2026-09-05T00:00:00.000Z",
+          "open": 104800,
+          "high": 105200,
+          "low": 104700,
+          "close": 105000,
+          "volume": 1000
+        }
+      ]
+    }
+  ]
+}

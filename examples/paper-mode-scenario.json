@@ -1,0 +1,28 @@
+{
+  "goals": {
+    "profile": "paper-test",
+    "maxDrawdownPct": 0.1,
+    "maxPositionPct": 0.2,
+    "maxOnchainExposurePct": 0.1,
+    "maxLeverage": 3,
+    "minConfidence": 0.3,
+    "reviewIntervalHours": 4
+  },
+  "portfolio": {
+    "timestamp": "2026-09-05T00:00:00.000Z",
+    "totalEquityUsd": 0,
+    "highWaterMarkUsd": 10000,
+    "currentDrawdownPct": 0,
+    "positions": []
+  },
+  "markets": [
+    {
+      "symbol": "BTCUSDT",
+      "priceUsd": 100000,
+      "change24hPct": 0.01,
+      "volume24hUsd": 1000000000,
+      "fundingRate": 0.0008,
+      "klines": []
+    }
+  ]
+}
