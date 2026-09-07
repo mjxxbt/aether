@@ -17,9 +17,7 @@
 
 [Download or play the demo video](media/aether-demo.mp4) · 3:11
 
-The demo shows the local Aether workflow, including strategy scoring, risk
-sizing, auditable Action IDs, and the human confirmation boundary. The local
-engine does not place Binance orders.
+The demo shows the Aether workflow with codex and binance agent os mcp.
 
 ## 📖 Description
 
