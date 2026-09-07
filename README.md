@@ -280,14 +280,10 @@ docs/
   testing.md                 Test suite + backtest documentation (NEW)
   x402-example.md            x402 payment walkthrough (NEW)
   example-prompts.md         Natural-language prompts (expanded)
-  demo-script.md             Detailed submission video script (expanded)
-  HACKATHON_SUBMISSION.md    Canonical submission packet and copy
-  HACKATHON_PITCH.md         Three-minute pitch and judge Q&A
   OPERATIONS_RUNBOOK.md      Safe operator workflow and recovery
   API.md                     Local dashboard API reference
   FAQ.md                     User and judge FAQ
   SECURITY_AND_SAFETY.md     Threat model and emergency procedure
-  RELEASE_CHECKLIST.md       Release, recording, and submission gates
 AGENT.md                     Orchestrating-agent instructions (index + roles)
 AGENT_ANALYST.md             Analyst role — data fetch + score (NEW)
 AGENT_RISK.md                Risk role — propose only (NEW)
@@ -304,8 +300,7 @@ tests/                       Jest test suite (NEW)
 
 Run `npm run verify` for builds, tests, lint, and browser/API checks using
 isolated temporary state. Install Chromium once with `npx playwright install chromium`.
-See [release status](docs/RELEASE_STATUS.md) for verified checks and remaining
-external submission requirements. No verification command places exchange orders.
+No verification command places exchange orders.
 
 ## Safety notes (also in `AGENT.md`)
 
