@@ -1,13 +1,34 @@
-node_modules/
+# Runtime and local state
 data/
 .env
-.env.local
-.env.*.local
-.vscode/
-.idea/
-*.swp
-*.swo
-.DS_Store
-Thumbs.db
+.env.*
+
+# Dependency and framework output
+node_modules/
+web/node_modules/
 web/.next/
 web/out/
+
+# Internal hackathon preparation files
+docs/HACKATHON_SUBMISSION.md
+docs/HACKATHON_PITCH.md
+docs/demo-script.md
+docs/RELEASE_CHECKLIST.md
+docs/RELEASE_STATUS.md
+
+# Repository-only media; the public GitHub README hosts the demo
+media/
+
+# Local tooling and test-only files
+.git/
+.github/
+.agents/
+.codex/
+.vscode/
+.idea/
+coverage/
+*.swp
+*.swo
+*.tsbuildinfo
+.DS_Store
+Thumbs.db

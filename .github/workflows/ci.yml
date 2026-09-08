@@ -29,6 +29,12 @@ jobs:
       - name: Run test suite
         run: npm test
 
+      - name: Check dependency metadata
+        run: npm run audit:offline
+
+      - name: Check package contents
+        run: npm run pack:check
+
       - name: Install dashboard dependencies
         working-directory: web
         run: npm ci
